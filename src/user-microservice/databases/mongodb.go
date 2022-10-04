@@ -6,73 +6,57 @@
 package databases
 
 import (
-	"time"
-
-	"../common"
-	"../models"
-	log "github.com/sirupsen/logrus"
-	mgo "gopkg.in/mgo.v2"
+	"context"
+	"fmt"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"gopkg.in/mgo.v2/bson"
+	"user-microservice/m/common"
+	"user-microservice/m/models"
 )
 
 // MongoDB manages MongoDB connection
 type MongoDB struct {
-	MgDbSession  *mgo.Session
-	Databasename string
+	MgDbSession      *mongo.Client
+	Databasename     string
+	MgCollectionName *mongo.Collection
 }
 
 // Init initializes mongo database
-func (db *MongoDB) Init() error {
-	db.Databasename = common.Config.MgDbName
-
-	// DialInfo holds options for establishing a session with a MongoDB cluster.
-	dialInfo := &mgo.DialInfo{
-		Addrs:    []string{common.Config.MgAddrs}, // Get HOST + PORT
-		Timeout:  60 * time.Second,
-		Database: db.Databasename,            // Database name
-		Username: common.Config.MgDbUsername, // Username
-		Password: common.Config.MgDbPassword, // Password
-	}
-
-	// Create a session which maintains a pool of socket connections
-	// to the DB MongoDB database.
+func (db *MongoDB) Init() {
 	var err error
-	db.MgDbSession, err = mgo.DialWithInfo(dialInfo)
-
+	db.Databasename = common.Config.MgDbName
+	var uri string = "mongodb://" + common.Config.MgAddrs + "/?maxPoolSize=10&w=majority"
+	db.MgDbSession, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
-		log.Debug("Can't connect to mongo, go error: ", err)
-		return err
+		panic(err)
 	}
-
-	return db.initData()
+	// Ping the primary
+	if err := db.MgDbSession.Ping(context.TODO(), readpref.Primary()); err != nil {
+		panic(err)
+	}
+	fmt.Println("Successfully connected and pinged.")
+	db.MgCollectionName = db.MgDbSession.Database(db.Databasename).Collection(common.ColUsers)
+	db.initData()
 }
 
 // InitData initializes default data
-func (db *MongoDB) initData() error {
-	var err error
-	var count int
-
-	// Check if user collection has at least one document
-	sessionCopy := db.MgDbSession.Copy()
-	defer sessionCopy.Close()
-
-	// Get a collection to execute the query against.
-	collection := sessionCopy.DB(db.Databasename).C(common.ColUsers)
-	count, err = collection.Find(bson.M{}).Count()
-
-	if count < 1 {
-		// Create admin/admin account
-		var user models.User
-		user = models.User{bson.NewObjectId(), "admin", "admin"}
-		err = collection.Insert(&user)
+func (db *MongoDB) initData() {
+	var user models.User
+	err := db.MgCollectionName.FindOne(context.TODO(), bson.D{}).Decode(&user)
+	if err != nil {
+		if err == mongo.ErrNoDocuments {
+			var user models.User
+			user = models.User{bson.NewObjectId(), "admin", "admin"}
+			db.MgCollectionName.InsertOne(context.TODO(), &user)
+		}
 	}
-
-	return err
 }
 
 // Close the existing connection
 func (db *MongoDB) Close() {
 	if db.MgDbSession != nil {
-		db.MgDbSession.Close()
+		db.MgDbSession.Disconnect(context.TODO())
 	}
 }

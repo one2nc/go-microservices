@@ -9,15 +9,15 @@ import (
 	"io"
 	"os"
 
-	"./common"
-	"./controllers"
-	"./databases"
 	"github.com/gin-gonic/contrib/jwt"
 	"github.com/gin-gonic/gin"
+	"user-microservice/m/common"
+	"user-microservice/m/controllers"
+	"user-microservice/m/databases"
 
-	_ "./docs"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
+	_ "user-microservice/m/docs"
 )
 
 // Main manages main golang application
@@ -34,10 +34,7 @@ func (m *Main) initServer() error {
 	}
 
 	// Initialize User database
-	err = databases.Database.Init()
-	if err != nil {
-		return err
-	}
+	databases.Database.Init()
 
 	// Setting Gin Logger
 	if common.Config.EnableGinFileLog {

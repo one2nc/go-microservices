@@ -40,9 +40,16 @@ Below is an example of designing and implementing **Microservices** using:
 ```sh
 $ mongod --dbpath="[your_database_path]"
 ```
-* Install neccessary Golang packages 
+* Install neccessary Golang packages in User Microservice (Run command from user-microservice directory)
 ```sh
-$ go get -u github.com/swaggo/swag/cmd/swag github.com/swaggo/gin-swagger github.com/swaggo/gin-swagger/swaggerFiles github.com/alecthomas/template github.com/gin-gonic/gin github.com/sirupsen/logrus gopkg.in/mgo.v2/bson github.com/natefinch/lumberjack
+$ go mod init user-microservice/m
+$ go get github.com/swaggo/swag/cmd/swag github.com/swaggo/gin-swagger@v1.4.3 github.com/swaggo/gin-swagger/swaggerFiles@v1.4.3 github.com/alecthomas/template github.com/gin-gonic/gin github.com/sirupsen/logrus gopkg.in/mgo.v2/bson github.com/natefinch/lumberjack go.mongodb.org/mongo-driver/mongo github.com/dgrijalva/jwt-go github.com/gin-gonic/contrib/jwt
+```
+
+* Install neccessary Golang packages in Movie Microservice (Run command from movie-microservice directory)
+```sh
+$ go mod init movie-microservice/m
+$ go get github.com/swaggo/swag/cmd/swag github.com/swaggo/gin-swagger@v1.4.3 github.com/swaggo/gin-swagger/swaggerFiles@v1.4.3 github.com/alecthomas/template github.com/gin-gonic/gin github.com/sirupsen/logrus gopkg.in/mgo.v2/bson github.com/natefinch/lumberjack go.mongodb.org/mongo-driver/mongo github.com/dgrijalva/jwt-go github.com/gin-gonic/contrib/jwt
 ```
 
 #### 2.2. Compile & run services
