@@ -63,8 +63,7 @@ const (
 // LoadConfig loads configuration from the config file
 func LoadConfig() error {
 	// Filename is the path to the json config file
-	//file, err := os.Open("config/config.json")
-	file, err := os.Open("src/movie-microservice/config/config.json")
+	file, err := os.Open("config/config.json")
 	if err != nil {
 		return err
 	}
