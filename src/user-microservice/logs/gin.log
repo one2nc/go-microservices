@@ -1,2 +1,87 @@
-[GIN] 2018/09/25 - 09:55:05 | 200 | 36.297965121s | 107.113.191.147 | POST     /api/v1/auth
-[GIN] 2018/09/25 - 09:55:33 | 401 |  9.026592488s | 107.113.191.147 | POST     /api/v1/auth
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /api/v1/admin/auth        --> user-microservice/m/controllers.(*User).Authenticate-fm (3 handlers)
+[GIN-debug] POST   /api/v1/users             --> user-microservice/m/controllers.(*User).AddUser-fm (4 handlers)
+[GIN-debug] GET    /api/v1/users/list        --> user-microservice/m/controllers.(*User).ListUsers-fm (4 handlers)
+[GIN-debug] GET    /api/v1/users/detail/:id  --> user-microservice/m/controllers.(*User).GetUserByID-fm (4 handlers)
+[GIN-debug] GET    /api/v1/users/            --> user-microservice/m/controllers.(*User).GetUserByParams-fm (4 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> user-microservice/m/controllers.(*User).DeleteUserByID-fm (4 handlers)
+[GIN-debug] PATCH  /api/v1/users             --> user-microservice/m/controllers.(*User).UpdateUser-fm (4 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8808
+[GIN] 2022/10/06 - 16:22:30 | 200 |     499.458µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:22:30 | 200 |     248.209µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:22:30 | 200 |     324.625µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:22:30 | 200 |     1.10925ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:22:30 | 200 |     558.625µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:22:37 | 200 |      90.209µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:22:37 | 200 |     500.416µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:22:48 | 200 |     105.292µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:22:48 | 304 |      36.542µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:22:48 | 304 |      79.292µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:22:48 | 304 |      26.208µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:22:48 | 200 |     508.333µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:22:55 | 404 |         833ns |             ::1 | GET      "/usermanagement"
+[GIN] 2022/10/06 - 16:28:15 | 404 |         958ns |             ::1 | GET      "/usermanagement/swagger/index.html"
+[GIN] 2022/10/06 - 16:28:26 | 404 |         833ns |             ::1 | GET      "/usermanagement/swagger/index.html"
+[GIN] 2022/10/06 - 16:28:34 | 404 |       1.083µs |             ::1 | GET      "/usermanagement/swagger/index.html"
+[GIN] 2022/10/06 - 16:36:09 | 200 |     212.125µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:36:09 | 200 |     171.667µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:36:09 | 200 |     650.042µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:36:09 | 200 |    1.056542ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:36:09 | 200 |     489.917µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:36:09 | 200 |      61.459µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2022/10/06 - 16:36:09 | 200 |      27.958µs |             ::1 | GET      "/swagger/favicon-16x16.png"
+[GIN] 2022/10/06 - 16:36:11 | 200 |      76.417µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:36:11 | 200 |     511.166µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:38:08 | 200 |     129.417µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:38:08 | 304 |          35µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:38:08 | 304 |      35.375µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:38:08 | 304 |      19.042µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:38:08 | 200 |     215.125µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:38:11 | 200 |      95.834µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:38:11 | 200 |     480.375µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:39:39 | 200 |     185.208µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:39:39 | 200 |     888.125µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:39:40 | 200 |      77.417µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:39:40 | 200 |     491.042µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:42:53 | 404 |         833ns |             ::1 | GET      "/dashboard/"
+[GIN] 2022/10/06 - 16:42:57 | 404 |         916ns |             ::1 | GET      "/"
+[GIN] 2022/10/06 - 16:42:59 | 200 |     283.958µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:42:59 | 304 |      96.292µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:42:59 | 304 |      49.125µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:42:59 | 304 |      26.834µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:43:00 | 200 |     467.542µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:48:14 | 200 |     176.666µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:48:14 | 304 |      75.833µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:48:14 | 304 |      55.208µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:48:14 | 304 |          50µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:48:14 | 200 |     741.333µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:50:55 | 200 |     161.625µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2022/10/06 - 16:50:55 | 304 |       37.75µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/10/06 - 16:50:55 | 304 |      30.584µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/10/06 - 16:50:55 | 304 |          27µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/10/06 - 16:50:56 | 200 |     482.708µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2022/10/06 - 16:51:33 | 200 |    4.661917ms |       127.0.0.1 | POST     "/api/v1/admin/auth"
+[GIN] 2022/10/06 - 16:53:46 | 200 |     693.375µs |             ::1 | POST     "/api/v1/admin/auth"
+[GIN] 2022/10/06 - 16:54:58 | 200 |         655µs |             ::1 | GET      "/api/v1/users/list"
+[GIN-debug] redirecting request 301: /usermanagement//api/v1/users/ --> /usermanagement//api/v1/users/?id=633b1e75c54d2d1661a75841
+[GIN] 2022/10/06 - 16:55:15 | 200 |    5.110541ms |             ::1 | GET      "/api/v1/users/?id=633b1e75c54d2d1661a75841"
+[GIN] 2022/10/06 - 16:55:27 | 200 |     545.958µs |             ::1 | GET      "/api/v1/users/detail/633b1e75c54d2d1661a75841"
+[GIN] 2022/10/06 - 16:55:42 | 200 |   20.282125ms |             ::1 | POST     "/api/v1/users"
+[GIN] 2022/10/06 - 16:55:55 | 200 |   20.016042ms |             ::1 | POST     "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:09 | 200 |    1.537042ms |             ::1 | DELETE   "/api/v1/users/633b2874c54d2d21b4909cf1"
+[GIN] 2022/10/06 - 16:56:28 | 200 |    2.014125ms |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:31 | 200 |     704.667µs |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:32 | 200 |     687.292µs |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:32 | 200 |     945.084µs |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:33 | 200 |     700.375µs |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:56:34 | 200 |       670.5µs |             ::1 | PATCH    "/api/v1/users"
+[GIN] 2022/10/06 - 16:57:40 | 200 |     940.917µs |             ::1 | GET      "/api/v1/users/list"
+[GIN] 2022/10/06 - 16:57:41 | 200 |       582.5µs |             ::1 | GET      "/api/v1/users/list"
