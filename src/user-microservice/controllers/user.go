@@ -8,13 +8,13 @@ package controllers
 import (
 	"net/http"
 
-	"../common"
-	"../daos"
-	"../models"
-	"../utils"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/mgo.v2/bson"
+	"user-microservice/m/common"
+	"user-microservice/m/daos"
+	"user-microservice/m/models"
+	"user-microservice/m/utils"
 )
 
 // User manages

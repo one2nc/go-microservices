@@ -1,0 +1,30 @@
+http:
+    routers:
+        userrouter:
+            rule: "Host(`localhost`) && PathPrefix(`/usermanagement`)"
+            middlewares:
+              - "user-stripprefix"
+            service: userservice
+        movierouter:
+            rule: "Host(`localhost`) && PathPrefix(`/moviemanagement`)"
+            middlewares:
+              - "movie-stripprefix"
+            service: movieservice
+    middlewares:
+      user-stripprefix:
+        stripPrefix:
+          prefixes:
+          - "/usermanagement"
+      movie-stripprefix:
+        stripPrefix:
+          prefixes:
+          - "/moviemanagement"
+    services:
+        userservice:
+            loadBalancer:
+                servers:
+                    - url: "http://localhost:8808/"
+        movieservice:
+            loadBalancer:
+                servers:
+                    - url: "http://localhost:8809/"

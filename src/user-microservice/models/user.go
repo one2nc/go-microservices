@@ -8,8 +8,8 @@ package models
 import (
 	"errors"
 
-	"../common"
 	"gopkg.in/mgo.v2/bson"
+	"user-microservice/m/common"
 )
 
 // User information

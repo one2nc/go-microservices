@@ -6,48 +6,41 @@
 package databases
 
 import (
-	"time"
-
-	"../common"
-	log "github.com/sirupsen/logrus"
-	mgo "gopkg.in/mgo.v2"
+	"context"
+	"fmt"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"movie-microservice/m/common"
 )
 
 // MongoDB manages MongoDB connection
 type MongoDB struct {
-	MgDbSession  *mgo.Session
-	Databasename string
+	MgDbSession      *mongo.Client
+	Databasename     string
+	MgCollectionName *mongo.Collection
 }
 
 // Init initializes mongo database
-func (db *MongoDB) Init() error {
-	db.Databasename = common.Config.MgDbName
-
-	// DialInfo holds options for establishing a session with a MongoDB cluster.
-	dialInfo := &mgo.DialInfo{
-		Addrs:    []string{common.Config.MgAddrs}, // Get HOST + PORT
-		Timeout:  60 * time.Second,
-		Database: db.Databasename,            // Database name
-		Username: common.Config.MgDbUsername, // Username
-		Password: common.Config.MgDbPassword, // Password
-	}
-
-	// Create a session which maintains a pool of socket connections
-	// to the DB MongoDB database.
+func (db *MongoDB) Init() {
 	var err error
-	db.MgDbSession, err = mgo.DialWithInfo(dialInfo)
-
+	db.Databasename = common.Config.MgDbName
+	var uri string = "mongodb://" + common.Config.MgAddrs + "/?maxPoolSize=10&w=majority"
+	db.MgDbSession, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
-		log.Debug("Can't connect to mongo, go error: ", err)
-		return err
+		panic(err)
 	}
-
-	return err
+	// Ping the primary
+	if err := db.MgDbSession.Ping(context.TODO(), readpref.Primary()); err != nil {
+		panic(err)
+	}
+	fmt.Println("Successfully connected and pinged.")
+	db.MgCollectionName = db.MgDbSession.Database(db.Databasename).Collection(common.ColMovies)
 }
 
 // Close the existing connection
 func (db *MongoDB) Close() {
 	if db.MgDbSession != nil {
-		db.MgDbSession.Close()
+		db.MgDbSession.Disconnect(context.TODO())
 	}
 }

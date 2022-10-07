@@ -39,6 +39,12 @@ var (
 	Config *Configuration
 )
 
+// COLLECTIONs of the database table
+const (
+	ColUsers  = "users"
+	ColMovies = "movies"
+)
+
 // Status Text
 const (
 	ErrNameEmpty      = "Name is empty"

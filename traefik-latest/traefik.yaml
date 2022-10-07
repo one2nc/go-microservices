@@ -1,0 +1,14 @@
+# Static configuration
+entryPoints:
+    go-microservice:
+        address: :80
+
+api:
+  dashboard: true
+  insecure: true
+  debug: true
+
+providers:
+   file:
+      filename: provider-file.yaml
+      watch: true

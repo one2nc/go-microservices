@@ -1,11 +1,11 @@
 {
     "port": ":8809",
     "enableGinConsoleLog": true,
-    "enableGinFileLog": false,
+    "enableGinFileLog": true,
 
     "logFilename": "logs/server.log",
-    "logMaxSize": 10,
-    "logMaxBackups": 10,
+    "logMaxSize": 20,
+    "logMaxBackups": 20,
     "logMaxAge": 30,
 
     "mgAddrs": "127.0.0.1:27017",

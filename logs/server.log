@@ -1,0 +1,25 @@
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-29T12:14:29+05:30"}
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-29T12:48:05+05:30"}
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-29T15:28:30+05:30"}
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-29T22:19:03+05:30"}
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-30T10:48:56+05:30"}
+{"level":"debug","msg":"no reachable servers","time":"2022-09-30T12:15:53+05:30"}
+{"level":"debug","msg":"Can't connect to mongo, go error: no reachable servers","time":"2022-09-30T12:15:55+05:30"}
+{"level":"debug","msg":"[ERROR]: cannot transform type bson.D to a BSON Document: WriteArray can only write a Array while positioned on a Element or Value but is positioned on a TopLevel","time":"2022-10-03T22:50:45+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T22:52:03+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T22:52:28+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T22:54:25+05:30"}
+{"level":"debug","msg":"Registered a new user = hello, password = hello","time":"2022-10-03T23:10:05+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T23:11:22+05:30"}
+{"level":"debug","msg":"[ERROR]: cannot transform type bson.D to a BSON Document: WriteArray can only write a Array while positioned on a Element or Value but is positioned on a TopLevel","time":"2022-10-03T23:15:48+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T23:30:23+05:30"}
+{"level":"debug","msg":"[ERROR]: mongo: no documents in result","time":"2022-10-03T23:35:02+05:30"}
+{"level":"debug","msg":"Registered a new user = Hola!, password = Hola!","time":"2022-10-03T23:40:53+05:30"}
+{"level":"debug","msg":"[ERROR]: update document must contain key beginning with '$'","time":"2022-10-03T23:42:09+05:30"}
+{"level":"debug","msg":"[ERROR]: update document must contain key beginning with '$'","time":"2022-10-03T23:42:46+05:30"}
+{"level":"debug","msg":"[ERROR]: update document must contain key beginning with '$'","time":"2022-10-03T23:45:37+05:30"}
+{"level":"debug","msg":"[ERROR]: update document must contain key beginning with '$'","time":"2022-10-03T23:47:16+05:30"}
+{"level":"debug","msg":"[ERROR]: update document must contain key beginning with '$'","time":"2022-10-03T23:47:22+05:30"}
+{"level":"debug","msg":"Registered a new user = HELLO23, password = hello","time":"2022-10-03T23:49:18+05:30"}
+{"level":"debug","msg":"Registered a new user = Delete USER!, password = Delete!","time":"2022-10-03T23:52:44+05:30"}
+{"level":"debug","msg":"[ERROR]: Post \"/api/v1/admin/auth\": unsupported protocol scheme \"\"","time":"2022-10-04T14:22:11+05:30"}
