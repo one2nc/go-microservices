@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "cfdd84f3-6057-44bc-923c-7acde03cc637",
+		"name": "Go-Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movie-Microservice",
+			"item": [
+				{
+					"name": "Authentication from movie-microservice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "admin",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8809/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8809",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movies List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODg0OTM5LCJpc3MiOiJzZWVkb3RlY2gifQ.doERJS_xX2UPS0zK3aj-5xTbD6UOtClCwI6lfC1KAD0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8809/api/v1/movies/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8809",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODc5MjU0LCJpc3MiOiJzZWVkb3RlY2gifQ.PbIgx-fplPikIPc9AHUCKmH7l0Yc6FFHzWjtONV8Zy8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"coverImage\": \"Movie Cover Image 2\",\n  \"description\": \"Movie Description 2\",\n  \"name\": \"Movie Name 2\",\n  \"url\": \"Movie URL 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8809/api/v1/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8809",
+							"path": [
+								"api",
+								"v1",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User-Microservice",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "admin",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"contentType": "multipart/form-data",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/admin/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODI0NzkwLCJpc3MiOiJzZWVkb3RlY2gifQ.zBLZlDhheNmbnzBgBuZyjoYbauAUT4hPy2Qh4abK31I",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBYID-QueryParameter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODIyMzcyLCJpc3MiOiJzZWVkb3RlY2gifQ.5WZ7h_h0-Q1WaCGEgCRHK4bvpO0Cua6MmfyAD7G2GWY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users?id=633b1e75c54d2d1661a75841",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "633b1e75c54d2d1661a75841"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBYID-URI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODIyMzcyLCJpc3MiOiJzZWVkb3RlY2gifQ.5WZ7h_h0-Q1WaCGEgCRHK4bvpO0Cua6MmfyAD7G2GWY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users/detail/633b1e75c54d2d1661a75841",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"detail",
+								"633b1e75c54d2d1661a75841"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODIyMzcyLCJpc3MiOiJzZWVkb3RlY2gifQ.5WZ7h_h0-Q1WaCGEgCRHK4bvpO0Cua6MmfyAD7G2GWY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Delete USER!\",\n        \"password\": \"Delete!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODIyMzcyLCJpc3MiOiJzZWVkb3RlY2gifQ.5WZ7h_h0-Q1WaCGEgCRHK4bvpO0Cua6MmfyAD7G2GWY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users/633b2874c54d2d21b4909cf1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"633b2874c54d2d21b4909cf1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY0ODIyMDIwLCJpc3MiOiJzZWVkb3RlY2gifQ.zdpVrlBGb6qSfPBuisetBBscYB6qKSi2cF1n2MVWqcc",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n        \"id\": \"633b25adc54d2d1ec7123d39\",\n        \"name\": \"HELLO23\",\n        \"password\": \"hello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8808/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8808",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Traefik",
+			"item": [
+				{
+					"name": "Movie-Microservice via Traefik",
+					"item": [
+						{
+							"name": "Authentication from movie-microservice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "admin",
+											"contentType": "multipart/form-data",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"contentType": "multipart/form-data",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/moviemanagement/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"moviemanagement",
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Movies List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU4ODkzLCJpc3MiOiJzZWVkb3RlY2gifQ.eEJZKbZYEO6V4ggnqAsPkj9S1pS7V0qW2g6hnYW_LuE",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/moviemanagement/api/v1/movies/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"moviemanagement",
+										"api",
+										"v1",
+										"movies",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add movie",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU4ODkzLCJpc3MiOiJzZWVkb3RlY2gifQ.eEJZKbZYEO6V4ggnqAsPkj9S1pS7V0qW2g6hnYW_LuE",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"coverImage\": \"Movie Cover Image\",\n  \"description\": \"Movie Description\",\n  \"name\": \"Movie Name\",\n  \"url\": \"Movie URL\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/moviemanagement/api/v1/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"moviemanagement",
+										"api",
+										"v1",
+										"movies"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User-Microservice via Traefik",
+					"item": [
+						{
+							"name": "Authentication",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user",
+											"value": "admin",
+											"contentType": "multipart/form-data",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"contentType": "multipart/form-data",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/admin/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"admin",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetBYID-QueryParameter",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users?id=633b1e75c54d2d1661a75841",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "633b1e75c54d2d1661a75841"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetBYID-URI",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users/detail/633b1e75c54d2d1661a75841",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users",
+										"detail",
+										"633b1e75c54d2d1661a75841"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Insert User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"name\": \"Delete USER!\",\n        \"password\": \"Delete!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users/633b2874c54d2d21b4909cf1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users",
+										"633b2874c54d2d21b4909cf1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiIiwiZXhwIjoxNjY1MDU5MDI2LCJpc3MiOiJzZWVkb3RlY2gifQ.jzA6vvCzyaOm_9-VYw9hrKnT_JJwdVRs-VQE__Imnus",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n        \"id\": \"633b25adc54d2d1ec7123d39\",\n        \"name\": \"HELLO23\",\n        \"password\": \"hello\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/usermanagement/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"usermanagement",
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
